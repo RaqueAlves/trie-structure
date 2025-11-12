@@ -1,3 +1,6 @@
+#include <iostream>
+#include <string>
+
 class TrieNode{
     public:
         TrieNode* children[26];
@@ -10,4 +13,16 @@ class TrieNode{
                 children[i] = nullptr;
             }
         }
+
+    void insert(TrieNode* root, const std::string& key) {
+        TrieNode* curr = root;
+        for (char c : key) {
+            if (curr->children[c - 'a'] == nullptr) {
+                TrieNode* newNode = new TrieNode();
+                curr->children[c - 'a'] = newNode;
+            }
+            curr = curr->children[c - 'a'];
+        }
+        curr->isLeaf = true;
+    }
 };
