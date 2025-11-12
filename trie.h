@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+using namespace std;
 
 class TrieNode{
     public:
@@ -24,5 +25,15 @@ class TrieNode{
             curr = curr->children[c - 'a'];
         }
         curr->isLeaf = true;
+    }
+    
+    bool search(TrieNode* root, const string& key) {
+        TrieNode* curr = root;
+        for (char c : key) {
+            if (curr->children[c - 'a'] == nullptr) 
+                return false;
+            curr = curr->children[c - 'a'];
+        }
+        return curr->isLeaf;
     }
 };
