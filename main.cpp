@@ -1,3 +1,5 @@
+//!  Copyright [2025] <Raquel Alves Pinto>
+
 #include <iostream>
 
 int main() {
