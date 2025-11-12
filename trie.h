@@ -18,11 +18,12 @@ class TrieNode{
     void insert(TrieNode* root, const std::string& key) {
         TrieNode* curr = root;
         for (char c : key) {
-            if (curr->children[c - 'a'] == nullptr) {
+            int index = c - 'a';
+            if (curr->children[index] == nullptr) {
                 TrieNode* newNode = new TrieNode();
-                curr->children[c - 'a'] = newNode;
+                curr->children[index] = newNode;
             }
-            curr = curr->children[c - 'a'];
+            curr = curr->children[index];
         }
         curr->isLeaf = true;
     }
@@ -30,10 +31,24 @@ class TrieNode{
     bool search(TrieNode* root, const string& key) {
         TrieNode* curr = root;
         for (char c : key) {
-            if (curr->children[c - 'a'] == nullptr) 
+            int index = c - 'a';
+            if (curr->children[index] == nullptr) 
                 return false;
-            curr = curr->children[c - 'a'];
+            curr = curr->children[index];
         }
         return curr->isLeaf;
+    }
+    
+    bool isPrefix(TrieNode *root, string &key)
+    {
+        TrieNode *current = root;
+        for (char c : key) {
+            int index = c - 'a';
+            if (current->children[index] == nullptr)
+                return false;
+            current = current->children[index];
+        }
+
+        return true;
     }
 };
