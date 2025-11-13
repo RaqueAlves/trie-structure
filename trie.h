@@ -11,6 +11,7 @@ namespace structures {
      public:
         TrieNode* children[26];
         bool isLeaf;
+        int prefixCount;
 
         TrieNode(); 
         
@@ -19,6 +20,8 @@ namespace structures {
         bool search(TrieNode* root, const std::string& key);
         
         bool isPrefix(TrieNode* root, const std::string& key);
+
+        int getPrefixCount(TrieNode* root, const std::string& key);
     };
 
 }
