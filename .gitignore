@@ -1,0 +1,33 @@
+# Arquivos de Configuração do VS Code
+# Ignora a pasta de configurações específicas do usuário/projeto
+.vscode/
+
+# Binários e Arquivos de Compilação (MinGW/GCC)
+# Ignora todos os arquivos executáveis (programas compilados)
+*.exe
+*.out
+*.bin
+
+# Pasta de saída de compilação comum (como você solicitou)
+output/
+build/
+bin/
+temp/
+
+# Arquivos de objeto e bibliotecas intermediárias
+*.o
+*.obj
+*.lib
+*.a
+*.dll
+*.so
+*.dylib
+
+# Pastas e arquivos do Sistema Operacional
+# Miniaturas do Windows e macOS
+Thumbs.db
+.DS_Store
+
+# Arquivos de Log e Dados Temporários
+*.log
+*.tmp
